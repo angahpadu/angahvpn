@@ -1,8 +1,7 @@
 #!/bin/bash
 clear
 echo -e "\e[93m                    Autoscript By ANGAHVPN                "
-echo -e "\e[92m         	   UNLIMITED SEGALANYA!                "
-echo -e "\e[0m                                                       "
+echo -e "                                                                "
 echo -e "\e[94m    .----------------------------------------------------.    "
 echo -e "\e[94m    |                    L2TP MENU                       |    "
 echo -e "\e[94m    '----------------------------------------------------'    "
