@@ -149,7 +149,7 @@ echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo ""
 echo "   - DEV TELEGRAM            : @matyo123"  | tee -a log-install.txt
-echo "   - Whatsapp                : +60132527814"  | tee -a log-install.txt
+echo "   - Whatsapp                : +601163872049"  | tee -a log-install.txt
 echo ""
 echo "------------------Script Created By ANGAHVPN---------------------" | tee -a log-install.txt
 
