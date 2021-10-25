@@ -1,7 +1,13 @@
 #!/bin/bash
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+MYIP=$(wget -qO- icanhazip.com);
+
+clear
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
-PUBLIC_IP=$(wget -qO- ipinfo.io/ip);
+PUBLIC_IP=$(wget -qO- icanhazip.com);
 else
 PUBLIC_IP=$IP
 fi
@@ -43,7 +49,5 @@ IPsec PSK    : myvpn
 Username     : $VPN_USER
 Password     : $VPN_PASSWORD
 Expired ON   : $exp
-=================================
-     Mod By ANGAHVPN
 =================================
 EOF

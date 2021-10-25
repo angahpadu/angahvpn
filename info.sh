@@ -1,7 +1,6 @@
 #!/bin/bash
+
 clear
-neofetch --ascii_distro Minix
-echo ' Created by ANGAHVPN '
-echo ''
+neofetch
 cat /root/log-install.txt
 echo ""

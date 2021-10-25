@@ -2,16 +2,21 @@
 
 clear
 echo -e "================================================="
-echo -e "#         Premium Auto Script By ANGAHVPN       #"
+echo -e "#         Premium Auto Script By DJASTV         #"
 echo -e "#-----------------------------------------------#"
-echo '     __      __     _     ___        __      _    _ ' 
-echo '   / _ \    |   \  | |  / ___ \    / _ \    | |  | |' 
-echo '  / /_\ \   | |\ \ | | | |  __    / /_\ \   | |__| |'
-echo ' /  ____ \  | | \ \| | | |__\ \  / ____  \  |  __  |' 
-echo '/_/     \_\ |_|  \ __|  \_____/ /_/     \_\ |_|  |_|' 
-echo '         	        UNLIMITED SEGALANYA!              '
-echo ''
-echo '         ......................................     '
-echo '                      Build in 2021                 '
-echo '                  TELEGRAM : @matyo123               '
+echo -e "# For Debian 9 & Debian 10 64 bit               #"
+echo -e "# For Ubuntu 18.04 & Ubuntu 20.04 64 bit        #"
+echo -e "# For VPS with KVM and VMWare virtualization    #"
+echo -e "# DJASTV PREMIUM                                #"
+echo -e "#-----------------------------------------------#"
+echo -e "# Thanks To                                     #"
+echo -e "#-----------------------------------------------#"
+echo -e "# ALLAH SWT                                     #"
+echo -e "# DjasTV                                        #"
+echo -e "# My Family                                     #"
+echo -e "# Google                                        #"
+echo -e "# LauranceLE                                    #"
+echo -e "# v2ray Indonesia                               #"
+echo -e "#                                               #"
+echo -e "#-----------------------------------------------#"
 echo -e "================================================="

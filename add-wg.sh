@@ -1,9 +1,15 @@
 #!/bin/bash
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+MYIP=$(wget -qO- icanhazip.com);
+echo "Checking VPS"
+clear
 # Load params
 source /etc/wireguard/params
 source /var/lib/premium-script/ipvps.conf
 if [[ "$IP" = "" ]]; then
-SERVER_PUB_IP=$(wget -qO- ipinfo.io/ip);
+SERVER_PUB_IP=$(wget -qO- icanhazip.com);
 else
 SERVER_PUB_IP=$IP
 fi
