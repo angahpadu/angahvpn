@@ -2,7 +2,7 @@
 # Debian 9 & 10 64bit
 # Ubuntu 18.04 & 20.04 bit
 # Centos 7 & 8 64bit 
-# By Horasss
+# By CTechDidik
 # ==================================================
 
 
@@ -19,11 +19,11 @@ Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_p
 Info="${Green_font_prefix}[information]${Font_color_suffix}"
 
 if [[ -e /etc/wireguard/params ]]; then
-	echo -e "${Info} WireGuard sudah diinstal, silahkan ketik addwg untuk menambah client."
+	echo -e "${Info} WireGuard sudah diinstal, silakan type addwg untuk menambah client."
 	exit 1
 fi
 
-echo -e "${Info} Wireguard VPS AutoScript by Horasss"
+echo -e "${Info} Wireguard VPS AutoScript by CTech Didik"
 # Detect public IPv4 address and pre-fill for the user
 
 # Detect public interface and pre-fill for the user
@@ -89,10 +89,10 @@ WG_RUNNING=$?
 
 # Tambahan
 cd /usr/bin
-wget -O add-wg "https://raw.githubusercontent.com/angahpadu/angahvps/main/add-wg.sh"
-wget -O del-wg "https://raw.githubusercontent.com/angahpadu/angahvps/main/del-wg.sh"
-wget -O cek-wg "https://raw.githubusercontent.com/angahpadu/angahvps/main/cek-wg.sh"
-wget -O renew-wg "https://raw.githubusercontent.com/angahpadu/angahvps/main/renew-wg.sh"
+wget -O add-wg "https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-wg.sh"
+wget -O del-wg "https://raw.githubusercontent.com/angahpadu/angahvpn/main/del-wg.sh"
+wget -O cek-wg "https://raw.githubusercontent.com/angahpadu/angahvpn/main/cek-wg.sh"
+wget -O renew-wg "https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew-wg.sh"
 chmod +x add-wg
 chmod +x del-wg
 chmod +x cek-wg
