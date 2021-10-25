@@ -1,11 +1,4 @@
 #!/bin/bash
-red='\e[1;31m'
-green='\e[0;32m'
-NC='\e[0m'
-MYIP=$(wget -qO- icanhazip.com);
-NIC=$(ip -o $ANU -4 route show to default | awk '{print $5}');
-
-clear
 wg="$(cat ~/log-install.txt | grep -i Wireguard | cut -d: -f2|sed 's/ //g')"
 echo -e "      Change Port $wg"
 read -p "New Port Wireguard: " wg2

@@ -1,10 +1,5 @@
 #!/bin/bash
-red='\e[1;31m'
-green='\e[0;32m'
-NC='\e[0m'
-MYIP=$(wget -qO- icanhazip.com);
-
-IP=$(wget -qO- icanhazip.com);
+IP=$(wget -qO- ipinfo.io/ip);
 date=$(date +"%Y-%m-%d")
 clear
 echo " Enter Your Email To Receive Message"

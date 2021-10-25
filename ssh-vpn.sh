@@ -1,27 +1,26 @@
 #!/bin/bash
-# By Horasss
+# By CTechDidik
 #
 # ==================================================
-
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
-MYIP=$(wget -qO- icanhazip.com);
+MYIP=$(wget -qO- ipinfo.io/ip);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 source /etc/os-release
 ver=$VERSION_ID
 
 #detail nama perusahaan
-country=ID
-state=Indonesia
-locality=Indonesia
-organization=www.vpnstores.net
-organizationalunit=www.vpnstores.net
-commonname=www.vpnstores.net
-email=admin@vpnstores.net
+country=MY
+state=Malaysia
+locality=Malaysia
+organization=ctechdidik.xyz
+organizationalunit=ctechdidik.xyz
+commonname=ctechdidik.xyz
+email=admin@ctechdidik.xyz
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/angahpadu/angahvps/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/angahpadu/angahvpn/main/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -72,8 +71,8 @@ apt-get remove --purge exim4 -y
 # install wget and curl
 apt -y install wget curl
 
-# set time GMT +7
-ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+# set time GMT +8
+ln -fs /usr/share/zoneinfo/Asia/Malaysia /etc/localtime
 
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
@@ -81,21 +80,30 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 # install
 apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl neofetch git lsof
 echo "clear" >> .profile
-echo "neofetch" >> .profile
+echo "neofetch --ascii_distro Minix" >> .profile
+
+
+
+
+
+
+
+
+
 
 # install webserver
 apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/angahpadu/angahvps/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/angahpadu/angahvpn/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/angahpadu/angahvps/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/angahpadu/angahvpn/main/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/angahpadu/angahvps/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/angahpadu/angahvpn/main/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -125,7 +133,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/angahpadu/angahvps/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/angahpadu/angahvpn/main/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
@@ -179,7 +187,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
 
 #OpenVPN
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
@@ -234,36 +242,47 @@ netfilter-persistent reload
 
 # download script
 cd /usr/bin
-wget -O add-host "https://raw.githubusercontent.com/angahpadu/angahvps/main/add-host.sh"
-wget -O about "https://raw.githubusercontent.com/angahpadu/angahvps/main/about.sh"
-wget -O menu "https://raw.githubusercontent.com/angahpadu/angahvps/main/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/angahpadu/angahvps/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/angahpadu/angahvps/main/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/angahpadu/angahvps/main/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/angahpadu/angahvps/main/member.sh"
-wget -O delete "https://raw.githubusercontent.com/angahpadu/angahvps/main/delete.sh"
-wget -O cek "https://raw.githubusercontent.com/angahpadu/angahvps/main/cek.sh"
-wget -O restart "https://raw.githubusercontent.com/angahpadu/angahvps/main/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/angahpadu/angahvps/main/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/angahpadu/angahvps/main/info.sh"
-wget -O ram "https://raw.githubusercontent.com/angahpadu/angahvps/main/ram.sh"
-wget -O renew "https://raw.githubusercontent.com/angahpadu/angahvps/main/renew.sh"
-wget -O autokill "https://raw.githubusercontent.com/angahpadu/angahvps/main/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/angahpadu/angahvps/main/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/angahpadu/angahvps/main/tendang.sh"
-wget -O clear-log "https://raw.githubusercontent.com/angahpadu/angahvps/main/clear-log.sh"
-wget -O change-port "https://raw.githubusercontent.com/angahpadu/angahvps/main/change.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/angahpadu/angahvps/main/port-ovpn.sh"
-wget -O port-ssl "https://raw.githubusercontent.com/angahpadu/angahvps/main/port-ssl.sh"
-wget -O port-wg "https://raw.githubusercontent.com/angahpadu/angahvps/main/port-wg.sh"
-wget -O port-tr "https://raw.githubusercontent.com/angahpadu/angahvps/main/port-tr.sh"
-wget -O port-sstp "https://raw.githubusercontent.com/angahpadu/angahvps/main/port-sstp.sh"
-wget -O port-squid "https://raw.githubusercontent.com/angahpadu/angahvps/main/port-squid.sh"
-wget -O port-ws "https://raw.githubusercontent.com/angahpadu/angahvps/main/port-ws.sh"
-wget -O port-vless "https://raw.githubusercontent.com/angahpadu/angahvps/main/port-vless.sh"
-wget -O wbmn "https://raw.githubusercontent.com/angahpadu/angahvps/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/angahpadu/angahvps/main/xp.sh"
-wget -O kernel-updt "https://raw.githubusercontent.com/angahpadu/angahvps/main/kernel-update.sh"
+wget -O add-host "https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-host.sh"
+wget -O add-host "https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-host.sh"
+wget -O about "https://raw.githubusercontent.com/angahpadu/angahvpn/main/about.sh"
+wget -O menu "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/angahpadu/angahvpn/main/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/angahpadu/angahvpn/main/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/angahpadu/angahvpn/main/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/angahpadu/angahvpn/main/member.sh"
+wget -O delete "https://raw.githubusercontent.com/angahpadu/angahvpn/main/delete.sh"
+wget -O cek "https://raw.githubusercontent.com/angahpadu/angahvpn/main/cek.sh"
+wget -O restart "https://raw.githubusercontent.com/angahpadu/angahvpn/main/restart.sh"
+wget -O speedtest-cli "https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py"
+wget -O info "https://raw.githubusercontent.com/angahpadu/angahvpn/main/info.sh"
+wget -O ram "https://raw.githubusercontent.com/angahpadu/angahvpn/main/ram.sh"
+wget -O renew "https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew.sh"
+wget -O autokill "https://raw.githubusercontent.com/angahpadu/angahvpn/main/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/angahpadu/angahvpn/main/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/angahpadu/angahvpn/main/tendang.sh"
+wget -O change-port "https://raw.githubusercontent.com/angahpadu/angahvpn/main/change.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-ovpn.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-ssl.sh"
+wget -O port-wg "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-wg.sh"
+wget -O port-tr "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-tr.sh"
+wget -O port-sstp "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-sstp.sh"
+wget -O port-squid "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-squid.sh"
+wget -O port-ws "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-ws.sh"
+wget -O port-vless "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-vless.sh"
+wget -O port-xray "https://raw.githubusercontent.com/angahpadu/angahvpn/main/port-xray.sh"
+wget -O wbmn "https://raw.githubusercontent.com/angahpadu/angahvpn/main/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/angahpadu/angahvpn/main/xp.sh"
+wget -O menu-vmess "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-vmess.sh"
+wget -O menu-vless "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-vless.sh"
+wget -O menu-l2tp "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-l2tp.sh"
+wget -O menu-pptp "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-pptp.sh"
+wget -O menu-sstp "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-sstp.sh"
+wget -O menu-ss "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-ss.sh"
+wget -O menu-ssr "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-ssr.sh"
+wget -O menu-trojan "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-trojan.sh"
+wget -O menu-wg "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-wg.sh"
+wget -O menu-ssh "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-ssh.sh"
+wget -O menu-xray "https://raw.githubusercontent.com/angahpadu/angahvpn/main/menu-xray.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x usernew
@@ -273,7 +292,7 @@ chmod +x member
 chmod +x delete
 chmod +x cek
 chmod +x restart
-chmod +x speedtest
+chmod +x speedtest-cli
 chmod +x info
 chmod +x about
 chmod +x autokill
@@ -281,7 +300,6 @@ chmod +x tendang
 chmod +x ceklim
 chmod +x ram
 chmod +x renew
-chmod +x clear-log
 chmod +x change-port
 chmod +x port-ovpn
 chmod +x port-ssl
@@ -291,10 +309,21 @@ chmod +x port-tr
 chmod +x port-squid
 chmod +x port-ws
 chmod +x port-vless
+chmod +x port-xray
 chmod +x wbmn
 chmod +x xp
-chmod +x kernel-updt
-echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
+chmod +x menu-vmess
+chmod +x menu-vless
+chmod +x menu-l2tp
+chmod +x menu-pptp
+chmod +x menu-sstp
+chmod +x menu-ss
+chmod +x menu-ssr
+chmod +x menu-trojan
+chmod +x menu-wg
+chmod +x menu-ssh
+chmod +x menu-xray
+echo "0 5 * * * root reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
 cd

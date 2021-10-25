@@ -8,7 +8,7 @@ apt -y install chrony
 timedatectl set-ntp true
 systemctl enable chronyd && systemctl restart chronyd
 systemctl enable chrony && systemctl restart chrony
-timedatectl set-timezone Asia/Jakarta
+timedatectl set-timezone Asia/Kuala_Lumpur
 chronyc sourcestats -v
 chronyc tracking -v
 date
@@ -16,7 +16,7 @@ date
 mkdir -p /etc/trojan/
 touch /etc/trojan/akun.conf
 # install v2ray
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/go.sh && chmod +x go.sh && ./go.sh
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 mkdir /root/.acme.sh
@@ -491,19 +491,19 @@ systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
-wget -O add-ws "https://raw.githubusercontent.com/angahpadu/angahvps/main/add-ws.sh"
-wget -O add-vless "https://raw.githubusercontent.com/angahpadu/angahvps/main/add-vless.sh"
-wget -O add-tr "https://raw.githubusercontent.com/angahpadu/angahvps/main/add-tr.sh"
-wget -O del-ws "https://raw.githubusercontent.com/angahpadu/angahvps/main/del-ws.sh"
-wget -O del-vless "https://raw.githubusercontent.com/angahpadu/angahvps/main/del-vless.sh"
-wget -O del-tr "https://raw.githubusercontent.com/angahpadu/angahvps/main/del-tr.sh"
-wget -O cek-ws "https://raw.githubusercontent.com/angahpadu/angahvps/main/cek-ws.sh"
-wget -O cek-vless "https://raw.githubusercontent.com/angahpadu/angahvps/main/cek-vless.sh"
-wget -O cek-tr "https://raw.githubusercontent.com/angahpadu/angahvps/main/cek-tr.sh"
-wget -O renew-ws "https://raw.githubusercontent.com/angahpadu/angahvps/main/renew-ws.sh"
-wget -O renew-vless "https://raw.githubusercontent.com/angahpadu/angahvps/main/renew-vless.sh"
-wget -O renew-tr "https://raw.githubusercontent.com/angahpadu/angahvps/main/renew-tr.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/angahpadu/angahvps/main/cert.sh"
+wget -O add-ws "https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-ws.sh"
+wget -O add-vless "https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-vless.sh"
+wget -O add-tr "https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-tr.sh"
+wget -O del-ws "https://raw.githubusercontent.com/angahpadu/angahvpn/main/del-ws.sh"
+wget -O del-vless "https://raw.githubusercontent.com/angahpadu/angahvpn/main/del-vless.sh"
+wget -O del-tr "https://raw.githubusercontent.com/angahpadu/angahvpn/main/del-tr.sh"
+wget -O cek-ws "https://raw.githubusercontent.com/angahpadu/angahvpn/main/cek-ws.sh"
+wget -O cek-vless "https://raw.githubusercontent.com/angahpadu/angahvpn/main/cek-vless.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/angahpadu/angahvpn/main/cek-tr.sh"
+wget -O renew-ws "https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew-ws.sh"
+wget -O renew-vless "https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew-vless.sh"
+wget -O renew-tr "https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew-tr.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/angahpadu/angahvpn/main/cert.sh"
 chmod +x add-ws
 chmod +x add-vless
 chmod +x add-tr
@@ -514,7 +514,7 @@ chmod +x cek-ws
 chmod +x cek-vless
 chmod +x cek-tr
 chmod +x renew-ws
-cmod +x renew-vless
+chmod +x renew-vless
 chmod +x renew-tr
 chmod +x certv2ray
 cd

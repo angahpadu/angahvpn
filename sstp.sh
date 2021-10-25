@@ -1,5 +1,5 @@
 #!/bin/bash
-MYIP=$(wget -qO- icanhazip.com);
+MYIP=$(wget -qO- ipinfo.io/ip);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 NIC=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 source /etc/os-release
@@ -22,13 +22,13 @@ mkdir /home/sstp
 touch /home/sstp/sstp_account
 touch /var/lib/premium-script/data-user-sstp
 #detail nama perusahaan
-country=ID
-state=Indonesia
-locality=Indonesia
-organization=www.vpnstores.net
-organizationalunit=www.vpnstores.net
-commonname=www.vpnstores.net
-email=admin@vpnstores.net
+country=MY
+state=Malaysia
+locality=Malaysia
+organization=ctechdidik.xyz
+organizationalunit=ctechdidik.xyz
+commonname=ctechdidik.xyz
+email=admin@ctechdidik.xyz
 
 #install sstp
 apt-get install -y build-essential cmake gcc linux-headers-`uname -r` git libpcre3-dev libssl-dev liblua5.1-0-dev ppp
@@ -40,7 +40,7 @@ make
 cpack -G DEB
 dpkg -i accel-ppp.deb
 mv /etc/accel-ppp.conf.dist /etc/accel-ppp.conf
-wget -O /etc/accel-ppp.conf "https://raw.githubusercontent.com/angahpadu/angahvps/main/accel.conf"
+wget -O /etc/accel-ppp.conf "https://raw.githubusercontent.com/angahpadu/angahvpn/main/accel.conf"
 sed -i $MYIP2 /etc/accel-ppp.conf
 chmod +x /etc/accel-ppp.conf
 systemctl start accel-ppp
@@ -62,9 +62,9 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
 netfilter-persistent reload > /dev/null
 #input perintah sstp
-wget -O /usr/bin/add-sstp https://raw.githubusercontent.com/angahpadu/angahvps/main/add-sstp.sh && chmod +x /usr/bin/add-sstp
-wget -O /usr/bin/del-sstp https://raw.githubusercontent.com/angahpadu/angahvps/main/del-sstp.sh && chmod +x /usr/bin/del-sstp
-wget -O /usr/bin/cek-sstp https://raw.githubusercontent.com/angahpadu/angahvps/main/cek-sstp.sh && chmod +x /usr/bin/cek-sstp
-wget -O /usr/bin/renew-sstp https://raw.githubusercontent.com/angahpadu/angahvps/main/renew-sstp.sh && chmod +x /usr/bin/renew-sstp
+wget -O /usr/bin/add-sstp https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-sstp.sh && chmod +x /usr/bin/add-sstp
+wget -O /usr/bin/del-sstp https://raw.githubusercontent.com/angahpadu/angahvpn/main/del-sstp.sh && chmod +x /usr/bin/del-sstp
+wget -O /usr/bin/cek-sstp https://raw.githubusercontent.com/angahpadu/angahvpn/main/cek-sstp.sh && chmod +x /usr/bin/cek-sstp
+wget -O /usr/bin/renew-sstp https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew-sstp.sh && chmod +x /usr/bin/renew-sstp
 rm -f /root/sstp.sh
 

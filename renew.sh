@@ -1,10 +1,4 @@
 #!/bin/bash
-red='\e[1;31m'
-green='\e[0;32m'
-NC='\e[0m'
-MYIP=$(wget -qO- icanhazip.com);
-
-clear
 read -p "         Username       :  " User
 egrep "^$User" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then

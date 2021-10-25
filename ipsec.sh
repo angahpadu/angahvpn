@@ -2,7 +2,6 @@
 # Debian 9 & 10 64bit
 # Ubuntu 18.04 & 20.04 bit
 # Centos 7 & 8 64bit 
-# By Horasss
 # ==================================================
 
 VPN_IPSEC_PSK='myvpn'
@@ -19,7 +18,7 @@ mkdir -p /opt/src
 cd /opt/src
 
 bigecho "Trying to auto discover IP of this server..."
-PUBLIC_IP=$(wget -qO- icanhazip.com);
+PUBLIC_IP=$(wget -qO- ipinfo.io/ip);
 
 bigecho "Installing packages required for the VPN..."
 if [[ ${OS} == "centos" ]]; then
@@ -277,12 +276,12 @@ mkdir -p /run/pluto
 service fail2ban restart 2>/dev/null
 service ipsec restart 2>/dev/null
 service xl2tpd restart 2>/dev/null
-wget -O /usr/bin/add-l2tp https://raw.githubusercontent.com/angahpadu/angahvps/main/add-l2tp.sh && chmod +x /usr/bin/add-l2tp
-wget -O /usr/bin/del-l2tp https://raw.githubusercontent.com/angahpadu/angahvps/main/del-l2tp.sh && chmod +x /usr/bin/del-l2tp
-wget -O /usr/bin/add-pptp https://raw.githubusercontent.com/angahpadu/angahvps/main/add-pptp.sh && chmod +x /usr/bin/add-pptp
-wget -O /usr/bin/del-pptp https://raw.githubusercontent.com/angahpadu/angahvps/main/del-pptp.sh && chmod +x /usr/bin/del-pptp
-wget -O /usr/bin/renew-pptp https://raw.githubusercontent.com/angahpadu/angahvps/main/renew-pptp.sh && chmod +x /usr/bin/renew-pptp
-wget -O /usr/bin/renew-l2tp https://raw.githubusercontent.com/angahpadu/angahvps/main/renew-l2tp.sh && chmod +x /usr/bin/renew-l2tp
+wget -O /usr/bin/add-l2tp https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-l2tp.sh && chmod +x /usr/bin/add-l2tp
+wget -O /usr/bin/del-l2tp https://raw.githubusercontent.com/angahpadu/angahvpn/main/del-l2tp.sh && chmod +x /usr/bin/del-l2tp
+wget -O /usr/bin/add-pptp https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-pptp.sh && chmod +x /usr/bin/add-pptp
+wget -O /usr/bin/del-pptp https://raw.githubusercontent.com/angahpadu/angahvpn/main/del-pptp.sh && chmod +x /usr/bin/del-pptp
+wget -O /usr/bin/renew-pptp https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew-pptp.sh && chmod +x /usr/bin/renew-pptp
+wget -O /usr/bin/renew-l2tp https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew-l2tp.sh && chmod +x /usr/bin/renew-l2tp
 touch /var/lib/premium-script/data-user-l2tp
 touch /var/lib/premium-script/data-user-pptp
 rm -f /root/ipsec.sh

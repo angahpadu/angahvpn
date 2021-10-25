@@ -1,128 +1,165 @@
 #!/bin/bash
 clear
+echo -e ""
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+CITY=$(curl -s ipinfo.io/city )
+WKT=$(curl -s ipinfo.io/timezone )
 IPVPS=$(curl -s ipinfo.io/ip )
-echo -e "SCRIPT BY"
-echo -e "   ========================================================"
-echo -e "   =      __      __     _     ___        __      _    _  ="
-echo -e "   =    / _ \    |   \  | |  / ___ \    / _ \    | |  | | ="
-echo -e "   =   / /_\ \   | |\ \ | | | |  __    / /_\ \   | |__| | ="
-echo -e "   =  /  ____ \  | | \ \| | | |__\ \  / ____  \  |  __  | ="
-echo -e "   = /_/     \_\ |_|  \ __|  \_____/ /_/     \_\ |_|  |_| ="
-echo -e "   =                                                      ="
-echo -e "   ========================================================"
-echo -e "                                      \e[033;1mIPVPS:\e[0m $IPVPS"     
-echo -e "=============================-Menu-============================"
-echo -e "*                       ANGAH AUTO SCRIPT"
-echo -e "=========================-VPN MENU-============================"
-echo -e "* [1]          : SSH & OpenVPN Menu"
-echo -e "* [2]          : Panel Wireguard"
-echo -e "* [3]          : Panel L2TP Account"
-echo -e "* [4]          : Panel PPTP Account"
-echo -e "* [5]          : Panel SSTP Account"
-echo -e "* [6]          : Panel SSR Account"
-echo -e "* [7]          : Panel SS Account"
-echo -e "* [8]          : Panel V2Ray/Vmess"
-echo -e "* [9]          : Panel V2Ray/VLess"
-echo -e "* [10]         : Panel TRojan"
+jam=$(date +"%T")
+hari=$(date +"%A")
+tnggl=$(date +"%d-%B-%Y")
+echo -e "* TIME          : $jam"
+echo -e "* DAY           : $hari"
+echo -e "* DATE          : $tnggl"
+echo -e "* SERVER        : $ISP"
+echo -e "* City          : $CITY"
 echo -e ""
-echo -e "=============================-SYSTEM-=========================="
-echo -e "* [11]         : Add Or Change Subdomain Host For VPS"
-echo -e "* [12]         : Change Port Of Some Service"
-echo -e "* [13]         : Autobackup Data VPS"
-echo -e "* [14]         : Backup Data VPS"
-echo -e "* [15]         : Restore Data VPS"
-echo -e "* [16]         : Webmin Menu"
-echo -e "* [17]         : Update To Latest Kernel"
-echo -e "* [18]         : Limit Bandwith Speed Server"
-echo -e "* [19]         : Check Usage of VPS Ram"
-echo -e "* [20]         : Reboot VPS"
-echo -e "* [21]         : Speedtest VPS"
-echo -e "* [22]         : Update To Latest Script Version"
-echo -e "* [23]         : Displaying System Information"
-echo -e "* [24]         : Info Script Auto Install"
-echo -e "* [x]          : Exit From VPS "
+echo -e " \e[94m   ========================================================\e[0m"
+echo -e " \e[1;32m   =      __      __     _     ___        __      _    _  =\e[0m"
+echo -e " \e[1;33m   =    / _ \    |   \  | |  / ___ \    / _ \    | |  | | =\e[0m"
+echo -e " \e[1;33m   =   / /_\ \   | |\ \ | | | |  __    / /_\ \   | |__| | =\e[0m"
+echo -e " \e[1;31m   =  /  ____ \  | | \ \| | | |__\ \  / ____  \  |  __  | =\e[0m"
+echo -e " \e[1;31m   = /_/     \_\ |_|  \ __|  \_____/ /_/     \_\ |_|  |_| =\e[0m"
+echo -e " \e[1;32m   =                                                      =\e[0m"
+echo -e " \e[94m   ========================================================\e[0m"
+echo '         	                      UNLIMITED SEGALANYA!                '
+echo -e "                                             $IPVPS"
 echo -e ""
-echo -e "==============================================================="
+echo -e "\e[1;33m=============================-Menu-=============================\e[0m'"
+echo -e "\e[1;33m*               Senarai Menu yang Disediakan\e[0m"
 echo -e ""
-read -p "        Select From Options [1-24 or x]: " menu
+echo -e "\e[94m    .----------------------------------------------------.    "
+echo -e "\e[94m    |                    MAIN MENU                       |    "
+echo -e "\e[94m    '----------------------------------------------------'    "
+echo -e "\e[0m                                                               "
+echo -e "\e[1;31m* [1]\e[0m  \e[1;32m: SSH & OVPN PANEL\e[0m"
+echo -e "\e[1;31m* [2]\e[0m  \e[1;32m: WIREGUARD PANEL\e[0m"
+echo -e "\e[1;31m* [3]\e[0m  \e[1;32m: L2TP PANEL\e[0m"
+echo -e "\e[1;31m* [4]\e[0m  \e[1;32m: PPTP PANEL\e[0m"
+echo -e "\e[1;31m* [5]\e[0m  \e[1;32m: SSTP PANEL\e[0m"
+echo -e "\e[1;31m* [6]\e[0m  \e[1;32m: SSR PANEL\e[0m"
+echo -e "\e[1;31m* [7]\e[0m  \e[1;32m: SHADOWSOCKS PANEL\e[0m"
+echo -e "\e[1;31m* [8]\e[0m  \e[1;32m: VMESS PANEL\e[0m"
+echo -e "\e[1;31m* [9]\e[0m  \e[1;32m: VLESS PANEL\e[0m"
+echo -e "\e[1;31m* [10]\e[0m \e[1;32m: XRAY PANEL\e[0m"
+echo -e "\e[1;31m* [11]\e[0m \e[1;32m: TROJAN PANEL\e[0m"
+echo -e ""
+echo -e "\e[94m    .----------------------------------------------------.    "
+echo -e "\e[94m    |                     SYSTEM                         |    "
+echo -e "\e[94m    '----------------------------------------------------'    "
+echo -e "\e[0m                                                               "
+echo -e "\e[1;31m* [12]\e[0m \e[1;32m: Add Or Change Subdomain Host For VPS\e[0m"
+echo -e "\e[1;31m* [13]\e[0m \e[1;32m: Renew Certificate \e[0m"
+echo -e "\e[1;31m* [14]\e[0m \e[1;32m: Change Port Of Some Service\e[0m"
+echo -e "\e[1;31m* [15]\e[0m \e[1;32m: Autobackup Data VPS\e[0m"
+echo -e "\e[1;31m* [16]\e[0m \e[1;32m: Backup Data VPS\e[0m"
+echo -e "\e[1;31m* [17]\e[0m \e[1;32m: Restore Data VPS\e[0m"
+echo -e "\e[1;31m* [18]\e[0m \e[1;32m: Webmin Menu\e[0m"
+echo -e "\e[1;31m* [19]\e[0m \e[1;32m: Update To Latest Kernel\e[0m"
+echo -e "\e[1;31m* [20]\e[0m \e[1;32m: Limit Bandwith Speed Server\e[0m"
+echo -e "\e[1;31m* [21]\e[0m \e[1;32m: Check Usage of VPS Ram\e[0m"
+echo -e "\e[1;31m* [22]\e[0m \e[1;32m: Reboot VPS\e[0m"
+echo -e "\e[1;31m* [23]\e[0m \e[1;32m: Speedtest VPS\e[0m"
+echo -e "\e[1;31m* [24]\e[0m \e[1;32m: Update To Latest Script Version\e[0m"
+echo -e "\e[1;31m* [25]\e[0m \e[1;32m: Displaying System Information\e[0m"
+echo -e "\e[1;31m* [26]\e[0m \e[1;32m: Info Script Auto Install\e[0m"
+echo -e "\e[1;31m* [27]\e[0m \e[1;32m: Exit From VPS \e[0m"
+
+echo -e ""
+echo -e "\e[94m    .----------------------------------------------------.    "
+echo -e "\e[94m    |                      ANGAHVPN                        |    "
+echo -e "\e[94m    '----------------------------------------------------'    "
+echo -e "\e[0m                                                               "
+echo -e ""
+read -p "        Select From Options [1-27 or x]: " menu
 echo -e ""
 case $menu in
 1)
-menuopen
+menu-ssh
 ;;
 2)
-menuwg
+menu-wg
 ;;
 3)
-menul2pt
+menu-l2tp
 ;;
 4)
-menupptp
+menu-pptp
 ;;
 5)
-menusstp
+menu-sstp
 ;;
 6)
-menussr
+menu-ssr
 ;;
 7)
-menuss
+menu-ss 
 ;;
 8)
-menuvmess
+menu-vmess
 ;;
 9)
-menuvless
+menu-vless 
 ;;
 10)
-menutr
+menu-xray 
+;;
 11)
-add-host
+menu-trojan 
 ;;
 12)
-change-port
+add-host
 ;;
 13)
-autobackup
+certv2ray
 ;;
 14)
-backup
+change-port
 ;;
 15)
-restore
+autobackup
 ;;
 16)
-wbmn
+backup
 ;;
 17)
-kernel-updt
+restore
 ;;
 18)
-limit-speed
+wbmn
 ;;
 19)
-ram
+kernel-updt
 ;;
 20)
-reboot
+limit-speed
 ;;
 21)
-speedtest
+ram
 ;;
 22)
-update
+reboot
 ;;
 23)
-info 
+speedtest-cli
 ;;
 24)
+update
+;;
+25)
+info
+;;
+26)
 about
+;;
+27)
+exit
 ;;
 x)
 exit
 menu
 ;;
 *)
-echo " Please enter an correct number!!"
+echo " Tolong masukkan nombor yang betul!!"
 ;;
 esac

@@ -2,16 +2,16 @@
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
-MYIP=$(wget -qO- icanhazip.com);
+MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 apt install jq curl -y
-DOMAIN=angahjew.xyz
+DOMAIN=ctechdidik.xyz
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.angahjew.xyz
-CF_ID=zulikhram49@gmail.com
-CF_KEY=ca28c73ae3ffa739306334f54cb51a593ebd0
+SUB_DOMAIN=${sub}.ctechdidik.xyz
+CF_ID=afandi_army@live.com
+CF_KEY=3340a701362d0884ad5d663b5115168babbb4
 set -euo pipefail
-IP=$(wget -qO- icanhazip.com);
+IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
      -H "X-Auth-Email: ${CF_ID}" \

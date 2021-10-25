@@ -22,7 +22,7 @@ Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_p
 Info="${Green_font_prefix}[information]${Font_color_suffix}"
 Error="${Red_font_prefix}[error]${Font_color_suffix}"
 Tip="${Green_font_prefix}[note]${Font_color_suffix}"
-Separator_1="——————————————————————————————"
+Separator_1="â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”"
 check_pid(){
 	PID=`ps -ef |grep -v grep | grep server.py |awk '{print $2}'`
 }
@@ -51,7 +51,7 @@ else
 fi
 }
 Set_user_api_server_pub_addr(){
-ip=$(wget -qO- ipv4.icanhazip.com);
+ip=$(wget -qO- ipv4.ipinfo.io/ip);
 ssr_server_pub_addr="${ip}"
 }
 Modify_user_api_server_pub_addr(){
@@ -122,7 +122,7 @@ if [[ ${OS} == "centos" ]]; then
 }
 Start_SSR(){
 	check_pid
-	wget -O /etc/init.d/ssrmu "https://raw.githubusercontent.com/angahpadu/angahvps/main/ssrmu"
+	wget -O /etc/init.d/ssrmu "https://raw.githubusercontent.com/angahpadu/angahvpn/main/ssrmu"
 	/etc/init.d/ssrmu start
 }
 Install_SSR(){
@@ -138,9 +138,9 @@ Save_iptables
 Start_SSR
 }
 Install_SSR
-wget -O /usr/bin/ssr https://raw.githubusercontent.com/angahpadu/angahvps/main/ssrmu.sh && chmod +x /usr/bin/ssr
-wget -O /usr/bin/add-ssr https://raw.githubusercontent.com/angahpadu/angahvps/main/add-ssr.sh && chmod +x /usr/bin/add-ssr
-wget -O /usr/bin/del-ssr https://raw.githubusercontent.com/angahpadu/angahvps/main/del-ssr.sh && chmod +x /usr/bin/del-ssr
-wget -O /usr/bin/renew-ssr https://raw.githubusercontent.com/angahpadu/angahvps/main/renew-ssr.sh && chmod +x /usr/bin/renew-ssr
+wget -O /usr/bin/ssr https://raw.githubusercontent.com/angahpadu/angahvpn/main/ssrmu.sh && chmod +x /usr/bin/ssr
+wget -O /usr/bin/add-ssr https://raw.githubusercontent.com/angahpadu/angahvpn/main/add-ssr.sh && chmod +x /usr/bin/add-ssr
+wget -O /usr/bin/del-ssr https://raw.githubusercontent.com/angahpadu/angahvpn/main/del-ssr.sh && chmod +x /usr/bin/del-ssr
+wget -O /usr/bin/renew-ssr https://raw.githubusercontent.com/angahpadu/angahvpn/main/renew-ssr.sh && chmod +x /usr/bin/renew-ssr
 touch /usr/local/shadowsocksr/akun.conf
 rm -f /root/ssr.sh

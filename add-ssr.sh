@@ -1,11 +1,5 @@
 #!/bin/bash
-red='\e[1;31m'
-green='\e[0;32m'
-NC='\e[0m'
-MYIP=$(wget -qO- icanhazip.com);
-echo "Checking VPS"
-clear
-IP=$(wget -qO- icanhazip.com);
+IP=$(wget -qO- ipinfo.io/ip);
 echo "Please enter the username you want to set (do not repeat, does not support Chinese, will be reported incorrect!)"
 read -e -p "(Default: ):" ssr_user
 CLIENT_EXISTS=$(grep -w $ssr_user /usr/local/shadowsocksr/akun.conf | wc -l)

@@ -1,4 +1,22 @@
 #!/bin/bash
+echo ''
+clear
+echo ''
+echo '       __       __     _     ___       __       _    _      ' 
+echo '      / _ \    |   \  | |  / ___ \    / _ \    | |  | |     ' 
+echo '     / /_\ \   | |\ \ | | | |  __    / /_\ \   | |__| |     '
+echo '    /  ____ \  | | \ \| | | |__\ \  / ____  \  |  __  |     ' 
+echo '   /_/     \_\ |_|  \ __|  \_____/ /_/     \_\ |_|  |_|     ' 
+echo ''
+echo '         	          UNLIMITED SEGALANYA!                    '
+echo '                         Telegram                           '
+echo '                  Telegram ANGAHVPN @matyo123               '
+echo ''
+echo ''
+echo '                       Tunggu 5 Saat!                       '
+echo ' .......................................................... '
+sleep 5
+clear
 if [ "${EUID}" -ne 0 ]; then
 		echo "You need to run this script as root"
 		exit 1
@@ -11,37 +29,87 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
-IZIN=$( curl https://raw.githubusercontent.com/angahpadu/ipbaik/main/ipbaikbanget | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/angahpadu/ip/main/access | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
-echo -e "${green}Permission Accepted...${NC}"
+clear
+echo -e "${green}Tahniah! Anda Dibenarkan menggunakan ANGAHVPN...${NC}"
+sleep 5
 else
-echo -e "${red}Permission Denied!${NC}";
-echo "Please Contact Admin"
-echo "Telegram t.me/djas08"
-echo "WhatsApp wa.me/62822220428038"
+clear
+echo ""
 rm -f setup.sh
+echo '                            ...                           '
+echo '        Anda Tidak Dibenarkan Menggunakan Script ini!     '
+echo '                            ...                           '
+echo '    Hubungi Saya di Telegram Untuk Mendapatkan Kebenaran!     '
+echo '                        t.me/matyo123   '
+sleep 20
 exit 0
 fi
-if [ -f "/etc/v2ray/domain" ]; then
-echo "Script Already Installed"
-exit 0
-fi
+echo '============================================='
+echo '          Sila Tunggu sebentar '
+echo 'Process Update & Upgrade Sedang Dijalankan '
+echo '============================================='
+sleep 2
+apt update && apt upgrade -y
+clear
+echo '============================================='
+echo '      Process Update&Upgrade Selesai '
+echo '============================================='
+sleep 2
+clear
+echo '============================================='
+echo '        Process Seterusnya Sila Tunggu '
+echo '============================================='
+sleep 2
+mkdir /etc/v2ray
 mkdir /var/lib/premium-script;
-echo "IP=" >> /var/lib/premium-script/ipvps.conf
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/cf.sh && chmod +x cf.sh && ./cf.sh
-#install ssh ovpn
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
-#install ssr
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
-#installwg
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
-#install v2ray
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-#install L2TP
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
-wget https://raw.githubusercontent.com/angahpadu/angahvps/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+mkdir /var/lib/crot-script;
+clear
+echo '============================================='
+echo "Sila Masukkan DOMAIN, Jika TIADA KLIK Enter"
+echo '============================================='
+read -p "Hostname / Domain: " host
+echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
+echo "IP=$host" >> /var/lib/crot-script/ipvps.conf
+echo "$host" >> /etc/v2ray/domain
+clear
+echo '============================================='
+echo '        Installing SSH & OPENVPN '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+echo '============================================='
+echo '        Installing SSTP '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
+echo '============================================='
+echo '        Installing ssr '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+echo '============================================='
+echo '        Installing shadowsocksobfs '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+echo '============================================='
+echo '        Installing WIREGUARD '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+echo '============================================='
+echo '        Installing V2RAY '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+echo '============================================='
+echo '        Installing ipsec '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
+echo '        Installing XRAY '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/install-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
+echo '============================================='
+echo '        Installing Websocket '
+echo '============================================='
+wget https://raw.githubusercontent.com/angahpadu/angahvpn/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+
 
 rm -f /root/ssh-vpn.sh
 rm -f /root/sstp.sh
@@ -49,30 +117,22 @@ rm -f /root/wg.sh
 rm -f /root/ss.sh
 rm -f /root/ssr.sh
 rm -f /root/ins-vt.sh
+rm -f /root/install-xray.sh
 rm -f /root/ipsec.sh
 rm -f /root/set-br.sh
-cat <<EOF> /etc/systemd/system/autosett.service
-[Unit]
-Description=autosetting
-Documentation=https://vpnstores.net
+echo "1.1" > /home/ver
 
-[Service]
-Type=oneshot
-ExecStart=/bin/bash /etc/set.sh
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target
-EOF
-systemctl daemon-reload
-systemctl enable autosett
-wget -O /etc/set.sh "https://raw.githubusercontent.com/angahpadu/angahvps/main/set.sh"
-chmod +x /etc/set.sh
-history -c
-echo "1.2" > /home/ver
+echo "echo '              AutoScript By ANGAHVPN             '" >> .profile
+echo "echo '              TELEGRAM : @matyo123            '" >> .profile
+echo "echo ''" >> .profile
+echo "echo '       Sila Type: 'menu', untuk ke menu utama      '" >> .profile
+echo "echo ''" >> .profile
 clear
 echo " "
-echo "Installation has been completed!!"
+echo '============================================='
+echo "       Installation has been completed!!"
+echo '============================================='
+sleep 3
 echo " "
 echo "=================================-Autoscript Premium-===========================" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
@@ -97,16 +157,18 @@ echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
 echo "   - V2RAY Vmess None TLS    : 80"  | tee -a log-install.txt
 echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
 echo "   - V2RAY Vless None TLS    : 8880"  | tee -a log-install.txt
+echo "   - XRAY DIRECT             : 6769"  | tee -a log-install.txt
+echo "   - XRAY SPLICE             : 6769"  | tee -a log-install.txt
 echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
-echo "   - Timezone                : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
+echo "   - Timezone                : Asia/Malaysia (UTC +8)"  | tee -a log-install.txt
 echo "   - Fail2Ban                : [ON]"  | tee -a log-install.txt
 echo "   - Dflate                  : [ON]"  | tee -a log-install.txt
 echo "   - IPtables                : [ON]"  | tee -a log-install.txt
 echo "   - Auto-Reboot             : [ON]"  | tee -a log-install.txt
 echo "   - IPv6                    : [OFF]"  | tee -a log-install.txt
-echo "   - Autoreboot On 05.00 GMT +7" | tee -a log-install.txt
+echo "   - Autoreboot On 05.00 UTC +8" | tee -a log-install.txt
 echo "   - Autobackup Data" | tee -a log-install.txt
 echo "   - Restore Data" | tee -a log-install.txt
 echo "   - Auto Delete Expired Account" | tee -a log-install.txt
@@ -114,15 +176,19 @@ echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   - Dev/Main                : DjasTv Grup"  | tee -a log-install.txt
-echo "   - Telegram                : T.me/djasri08"  | tee -a log-install.txt
-echo "   - Instagram               : @djas"  | tee -a log-install.txt
-echo "   - Whatsapp                : 082220428038"  | tee -a log-install.txt
-echo "   - Facebook                : https://www.facebook.com/myasri" | tee -a log-install.txt
-echo "------------------Script Created By DjasTV - v2ray Indonesia Grup-----------------" | tee -a log-install.txt
 echo ""
-echo " Reboot 15 Sec"
-sleep 15
-rm -f setup.sh
-reboot
+echo "   - DEV TELEGRAM            : @matyo123"  | tee -a log-install.txt
+echo "   - Whatsapp                : +60132527814"  | tee -a log-install.txt
+echo ""
+echo "------------------Script Created By ANGAHVPN---------------------" | tee -a log-install.txt
 
+sleep 3
+echo '============================================='
+echo '      SISTEM AKAN REBOOT SEBENTAR LAGI'
+echo '============================================='
+echo ""
+rm -f /root/setup.sh
+rm -f /root/.bash_history
+echo " Reboot 15 Sec, Setelah ON type menu"
+sleep 15
+reboot
